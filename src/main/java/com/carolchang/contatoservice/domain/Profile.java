@@ -16,4 +16,21 @@ public class Profile extends Contato{
 		super(id,nome,email,telefone,mensagem,projeto);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Nome = ");
+		builder.append(getNome());
+		builder.append(", Email = ");
+		builder.append(getEmail());
+		builder.append(", Telefone = ");
+		builder.append(getTelefone());
+		builder.append(", Mensagem = ");
+		builder.append(getMensagem());
+		builder.append(", Projeto = ");
+		builder.append(getProjeto());
+		builder.append("\n");
+		return builder.toString();
+	}
+
 }
