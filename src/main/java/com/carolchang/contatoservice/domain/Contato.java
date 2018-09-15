@@ -2,11 +2,14 @@ package com.carolchang.contatoservice.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+
 import com.carolchang.contatoservice.domain.enums.Projeto;
 
 public abstract class Contato implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
 	private String nome;
 	private String email;
