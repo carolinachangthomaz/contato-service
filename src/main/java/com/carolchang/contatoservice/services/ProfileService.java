@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.carolchang.contatoservice.domain.Profile;
+import com.carolchang.contatoservice.domain.enums.Projeto;
 import com.carolchang.contatoservice.repository.ProfileRepository;
 
 @Service
@@ -14,6 +15,7 @@ public class ProfileService {
 	
 	public Profile create(Profile profile){
 		profile.setId(null);
+		profile.setProjeto(Projeto.PROFILE);
 		return profileRepository.save(profile);
 	}
 

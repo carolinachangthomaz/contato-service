@@ -22,7 +22,7 @@ public abstract class AbstractEmailService implements EmailService {
 		SimpleMailMessage sm = new SimpleMailMessage();
 		sm.setTo(profile.getEmail());
 		sm.setFrom(sender);
-		sm.setSubject("Projeto -> "+profile.getProjeto().getDescricao());
+		sm.setSubject(profile.getProjeto().getDescricao()+ " - Novo Contato : "+profile.getNome());
 		sm.setSentDate(new Date(System.currentTimeMillis()));
 		sm.setText(profile.toString());
 		return sm;
