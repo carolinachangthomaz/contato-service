@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
@@ -13,7 +15,7 @@ import com.carolchang.contatoservice.services.EmailService;
 import com.carolchang.contatoservice.services.ProfileService;
 
 @SpringBootApplication
-public class ContatoServiceApplication implements CommandLineRunner{
+public class ContatoServiceApplication extends SpringBootServletInitializer implements CommandLineRunner{
 	
 	@Autowired
 	private ProfileService profileService;
@@ -41,5 +43,11 @@ public class ContatoServiceApplication implements CommandLineRunner{
 	@Bean
 	public HttpFirewall defaultHttpFirewall() {
 	    return new DefaultHttpFirewall();
+	}
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		
+		return super.configure(builder);
 	}
 }
