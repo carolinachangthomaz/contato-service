@@ -17,7 +17,7 @@ import com.carolchang.contatoservice.services.EmailService;
 import com.carolchang.contatoservice.services.ProfileService;
 
 @RestController
-@RequestMapping(value="/profile")
+@RequestMapping(value="/contato-service")
 public class ProfileResource {
 	
 	@Autowired
@@ -26,7 +26,7 @@ public class ProfileResource {
 	@Autowired
 	private EmailService emailService;
 	
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Void> insert(@Valid @RequestBody Profile profile){
 		profile = profileService.create(profile);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(profile.getId()).toUri();
