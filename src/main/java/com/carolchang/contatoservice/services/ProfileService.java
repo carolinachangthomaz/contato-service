@@ -15,7 +15,7 @@ public class ProfileService {
 	
 	public Profile create(Profile profile){
 		profile.setId(null);
-		profile.setProjeto(Projeto.PROFILE);
+		profile.setProjeto(profile.getProjeto());
 		return profileRepository.save(profile);
 	}
 

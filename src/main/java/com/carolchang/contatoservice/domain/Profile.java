@@ -12,7 +12,7 @@ public class Profile extends Contato{
 		super();
 	}
 	
-	public Profile(String id, String nome, String email, String telefone, String mensagem, Projeto projeto) {
+	public Profile(String id, String nome, String email, String telefone, String mensagem,Integer projeto) {
 		super(id,nome,email,telefone,mensagem,projeto);
 	}
 
@@ -21,14 +21,18 @@ public class Profile extends Contato{
 		StringBuilder builder = new StringBuilder();
 		builder.append("Nome = ");
 		builder.append(getNome());
-		builder.append(", Email = ");
+		builder.append("\n");
+		builder.append("Email = ");
 		builder.append(getEmail());
-		builder.append(", Telefone = ");
+		builder.append("\n");
+		builder.append("Telefone = ");
 		builder.append(getTelefone());
-		builder.append(", Mensagem = ");
+		builder.append("\n");
+		builder.append("Mensagem = ");
 		builder.append(getMensagem());
-		builder.append(", Projeto = ");
-		builder.append(getProjeto());
+		builder.append("\n");
+		builder.append("Projeto => ");
+		builder.append(Projeto.getNomeProjeto(getProjeto()));
 		builder.append("\n");
 		return builder.toString();
 	}

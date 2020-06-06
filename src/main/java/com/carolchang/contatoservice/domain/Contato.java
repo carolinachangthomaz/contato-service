@@ -15,12 +15,13 @@ public abstract class Contato implements Serializable{
 	private String email;
 	private String telefone;
 	private String mensagem;
-	private Projeto projeto;
+	private Integer projeto;
+	
 	
 	public Contato() {
 	}
 
-	public Contato(String id, String nome, String email, String telefone, String mensagem, Projeto projeto) {
+	public Contato(String id, String nome, String email, String telefone, String mensagem, Integer projeto) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -28,6 +29,7 @@ public abstract class Contato implements Serializable{
 		this.telefone = telefone;
 		this.mensagem = mensagem;
 		this.projeto = projeto;
+		
 	}
 
 	public String getId() {
@@ -70,11 +72,12 @@ public abstract class Contato implements Serializable{
 		this.mensagem = mensagem;
 	}
 
-	public Projeto getProjeto() {
+
+	public Integer getProjeto() {
 		return projeto;
 	}
 
-	public void setProjeto(Projeto projeto) {
+	public void setProjeto(Integer projeto) {
 		this.projeto = projeto;
 	}
 

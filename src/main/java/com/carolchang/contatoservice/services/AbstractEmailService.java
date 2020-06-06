@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;	
 
 import com.carolchang.contatoservice.domain.Profile;
+import com.carolchang.contatoservice.domain.enums.Projeto;
 
 public abstract class AbstractEmailService implements EmailService {
 
@@ -20,9 +21,10 @@ public abstract class AbstractEmailService implements EmailService {
 	
 	protected SimpleMailMessage prepareSimpleMailMessageFromProfile(Profile profile) {
 		SimpleMailMessage sm = new SimpleMailMessage();
-		sm.setTo(profile.getEmail());
+		sm.setTo("carol.com.jp@gmail.com");
+		sm.setCc("poliana@corretorassociadolopes.com.br");
 		sm.setFrom(sender);
-		sm.setSubject(profile.getProjeto().getDescricao()+ " - Novo Contato : "+profile.getNome());
+		sm.setSubject(Projeto.getNomeProjeto(profile.getProjeto())+ " - Novo Contato : "+profile.getNome());
 		sm.setSentDate(new Date(System.currentTimeMillis()));
 		sm.setText(profile.toString());
 		return sm;
